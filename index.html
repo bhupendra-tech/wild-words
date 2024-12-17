@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/index.css" />
+  </head>
+  <body>
+    <div
+      class="w-full h-full overflow-hidden flex justify-center items-center bg-blue-400 p-2"
+    >
+      <div class="relative border-2 border-black">
+        <canvas id="game-canvas" class="w-full h-full"></canvas>
+        <div class="w-full h-full absolute z-10 top-0">
+          <div class="hidden canvasMsgBox" id="arrow-exhausted-msg">
+            <p class="text-2xl text-gray-600 font-semibold">
+              You ran out of arrows
+            </p>
+            <p>This happen if multiple answers were wrong</p>
+            <button class="bg-red-300 px-4 py-2 rounded-md play-again-btn">
+              Play Again
+            </button>
+          </div>
+          <div class="hidden canvasMsgBox" id="congratulations-msg">
+            <p class="text-4xl text-red-300">Congratulations</p>
+            <p class="text-gray-400">You have completed the quest</p>
+            <button class="play-again-btn">Play Again</button>
+          </div>
+          <div class="hidden canvasMsgBox" id="playerDied-msg">
+            <p class="text-4xl text-gray-600">Player Died</p>
+            <button class="bg-red-300 px-4 py-2 rounded-md play-again-btn">
+              Play Again
+            </button>
+          </div>
+          <div class="hidden canvasMsgBox fade-out fade-in" id="loading"></div>
+        </div>
+        <div
+          class="canvasMsgBox bg-blue-50 border-t-2 border-black relative z-20"
+        >
+          <div class="flex canvasMsgBox py-3" id="game-controller">
+            <p class="text-red-300 text-4xl" id="game-question">_UP</p>
+            <div class="px-2 flex gap-4">
+              <button class="option-btn">C</button>
+              <button class="option-btn">T</button>
+              <button class="option-btn">N</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/canvas.ts"></script>
+  </body>
+</html>
